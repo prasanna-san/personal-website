@@ -175,3 +175,17 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Hide default cursor and enhance melting effect */
+* {
+  cursor: none !important;
+}
+
+body {
+  cursor: none !important;
+}
+
+/* Custom cursor styles for interactive elements */
+a, button, input, textarea, select {
+  cursor: none !important;
+}
