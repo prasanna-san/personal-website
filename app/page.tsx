@@ -7,7 +7,10 @@ import Experience from "@/components/experience"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 
+
 export default function Home() {
+
+  
   return (
     <main className="w-full overflow-hidden">
       <Navbar />

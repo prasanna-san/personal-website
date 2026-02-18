@@ -39,7 +39,7 @@ const Projects = () => {
         "A comprehensive school management platform built with Next.js, featuring student dashboards, course management, and real-time notifications.",
       tags: ["Next.js", "Tailwind CSS", "MongoDB", "Express"],
       image: "/school-dashboard.png",
-      link: "#",
+      link: "https://www.ankurammuradnagar.com/",
     },
     {
       title: "Music Player App",
@@ -47,15 +47,7 @@ const Projects = () => {
         "Feature-rich music player with playlist management, real-time search, and seamless audio playback across devices.",
       tags: ["React", "Node.js", "PostgreSQL", "WebSocket"],
       image: "/modern-music-player.png",
-      link: "#",
-    },
-    {
-      title: "E-Commerce Platform",
-      description:
-        "Full-stack e-commerce solution with payment integration, product catalog, and admin dashboard for inventory management.",
-      tags: ["Next.js", "Stripe", "PostgreSQL", "Redis"],
-      image: "/ecommerce-store.png",
-      link: "#",
+      link: "https://musician-iota.vercel.app/",
     },
   ]
 

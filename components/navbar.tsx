@@ -14,7 +14,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
-    
+
     // Set initial state
     handleScroll()
 
@@ -41,14 +41,15 @@ export default function Navbar() {
   }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        mounted && isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed left-0 right-0 top-4 z-50 pointer-events-none">
+      <div
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-auto transition-all duration-300 ${mounted && isScrolled
+            ? "bg-background/80 backdrop-blur-md border border-border shadow-lg rounded-xl"
+            : "bg-background/60 backdrop-blur-md border border-border/60 rounded-xl"
+          }`}
+      >
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0 group cursor-pointer">
+          <div className="shrink-0 group cursor-pointer">
             <a href="#" onClick={() => handleNavClick("#")} className="flex items-center gap-2">
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center group-hover:shadow-lg group-hover:shadow-primary/50 transition-all duration-300">
                 <span className="text-primary-foreground font-bold">P</span>
@@ -65,7 +66,7 @@ export default function Navbar() {
                 className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative group"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
               </button>
             ))}
           </div>
@@ -77,23 +78,23 @@ export default function Navbar() {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-      </div>
 
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-64" : "max-h-0"
-        }`}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md border-b border-border">
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => handleNavClick(link.href)}
-              className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-card transition-colors duration-200"
-            >
-              {link.name}
-            </button>
-          ))}
+        {/* Mobile dropdown now inside the rounded glass container so it aligns with the bar */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-64" : "max-h-0"
+            }`}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-background/75 backdrop-blur-sm rounded-b-xl">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-muted-foreground hover:text-foreground hover:bg-card transition-colors duration-200"
+              >
+                {link.name}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
